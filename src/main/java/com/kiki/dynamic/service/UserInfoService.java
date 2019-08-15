@@ -48,7 +48,13 @@ public class UserInfoService {
     }
 
 
-
+    /**
+     * 添加数据，有事务
+     *   添加事务管理
+     * @param uname
+     * @param mail
+     * @return
+     */
     public String insertUser(String uname, String mail) {
         UserInfo user = new UserInfo();
         user.setUname(uname);
@@ -59,14 +65,8 @@ public class UserInfoService {
         return "success";
     }
 
-    /**
-     * 添加数据，有事务
-     *   添加事务管理
-     * @param uname
-     * @param mail
-     * @return
-     */
-    public String noTxInsertUserTran(String uname, String mail) {
+
+    public String noTxInsertUser(String uname, String mail) {
         UserInfo user = new UserInfo();
         user.setUname(uname);
         user.setMail(mail);

@@ -24,7 +24,7 @@ import com.kiki.dynamic.common.DynamicDataSource;
  */
 @Aspect
 @Component
-//@Order注解用于定义的AOP先于事物执行(这里保证了在事务之前完成数据源的切换，以免切换数据源失效)
+//@Order注解用于定义的AOP先于事务执行(这里保证了在事务之前完成数据源的切换，以免切换数据源失效)
 @Order(-1)
 public class ChangeDataSourceAdviceConfig {
     private static Logger logger = LoggerFactory

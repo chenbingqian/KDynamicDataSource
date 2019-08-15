@@ -45,7 +45,7 @@ public class UserInfoController {
     @GetMapping("/insert/notx/{uname}/{mail}")
     public String insertTranUser(@PathVariable String uname,
                              @PathVariable String mail) {
-        return  permissionService.noTxInsertUserTran(uname, mail);
+        return  permissionService.noTxInsertUser(uname, mail);
     }
 
 
