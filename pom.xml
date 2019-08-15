@@ -69,6 +69,13 @@
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 
+		<!-- 若出现这个错误，就将下面这个jar的注释给放开吧，我也不知道同样的代码，为啥不同电脑上面运行还不一样了，这是一个我不清楚的知识点
+			No converter found for return value of type: class java.util.ArrayList （这个jar的作用就是序列化） -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>

@@ -48,25 +48,14 @@ public class UserInfoService {
 
     // 添加事务管理
     @Transactional
-    public List<UserInfo> insert(String uname, String mail) {
+    public String insert(String uname, String mail) {
         UserInfo user = new UserInfo();
         user.setUname(uname);
         user.setMail(mail);
-        // userInfoMapper.insertUser(user);
+        userInfoMapper.insertUser(user);
         // user.setUid(1);
         // userInfoMapper.insertUserError(user);
-        return getList2();
+        return "success";
     }
 
-    public void addTest() {
-        logger.info("..............add");
-        delTest();
-    }
-
-    public void delTest() {
-        logger.info("..............delTest");
-    }
-    public void editTest() {
-        logger.info("..............edit");
-    }
 }

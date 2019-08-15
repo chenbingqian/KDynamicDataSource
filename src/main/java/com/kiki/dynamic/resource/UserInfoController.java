@@ -37,20 +37,10 @@ public class UserInfoController {
     }
 
     @GetMapping("/insert/{uname}/{mail}")
-    public List<UserInfo> insert(@PathVariable String uname,
+    public String insertUser(@PathVariable String uname,
             @PathVariable String mail) {
-        return permissionService.insert(uname, mail);
+        return  permissionService.insert(uname, mail);
     }
 
-    @GetMapping("/edit")
-    public String edit() {
-        permissionService.editTest();
-        return "edit";
-    }
 
-    @GetMapping("/add")
-    public String add() {
-        permissionService.addTest();
-        return "add";
-    }
 }
