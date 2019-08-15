@@ -28,18 +28,24 @@ public class UserInfoController {
 
     @RequestMapping("/bing")
     public List<UserInfo> bing() {
-        return permissionService.getList();
+        return permissionService.getBingList();
     }
 
     @RequestMapping("/kiki")
     public List<UserInfo> kiki() {
-        return permissionService.getList2();
+        return permissionService.getKikiList();
     }
 
     @GetMapping("/insert/{uname}/{mail}")
     public String insertUser(@PathVariable String uname,
             @PathVariable String mail) {
-        return  permissionService.insert(uname, mail);
+        return  permissionService.insertUser(uname, mail);
+    }
+    //没有事务
+    @GetMapping("/insert/notx/{uname}/{mail}")
+    public String insertTranUser(@PathVariable String uname,
+                             @PathVariable String mail) {
+        return  permissionService.noTxInsertUserTran(uname, mail);
     }
 
 

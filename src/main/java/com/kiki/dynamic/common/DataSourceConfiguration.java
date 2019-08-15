@@ -26,12 +26,15 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * springboot集成mybatis的基本入口 1）创建数据源(如果采用的是默认的tomcat-jdbc数据源，则不需要)
  * 2）创建SqlSessionFactory 3）配置事务管理器，除非需要使用事务，否则不用配置
  */
 @Configuration
+@EnableTransactionManagement
 public class DataSourceConfiguration {
 
     @Autowired
@@ -96,10 +99,9 @@ public class DataSourceConfiguration {
     /**
      * 配置事务管理器
      */
-    @Bean
-    public DataSourceTransactionManager transactionManager(
-            DynamicDataSource dataSource) throws Exception {
+    @Bean(name = "dynamicTransactionManager")
+    public PlatformTransactionManager dynamicTransactionManager(DynamicDataSource dataSource) {
+        System.out.println("dynamic datasource transaction manager is init");
         return new DataSourceTransactionManager(dataSource);
     }
-
 }
